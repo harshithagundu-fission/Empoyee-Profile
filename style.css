@@ -424,3 +424,31 @@ body{
     display: block;
     margin-top: 40px;
 }
+.menutext{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+/* .profiletext{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+} */
+.scripttext{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+.settingstext{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+.delete_button{
+    background-color: rgb(236, 137, 137);
+    border-radius: 30%;
+}
