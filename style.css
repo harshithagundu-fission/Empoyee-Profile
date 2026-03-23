@@ -449,6 +449,34 @@ body{
     justify-content: center;
 }
 .delete_button{
-    background-color: rgb(236, 137, 137);
-    border-radius: 30%;
+    background-color: #fcaeae;
+    border-radius: 8%;
+    /* color: red; */
+ } 
+
+.delete_button button{
+    background-color: #fcaeae;
+    border: none;
+    color: red;
+    border-radius: 20px 20px;
+ } 
+
+/* Save Changes — class is on the button in index.html */
+.btn.btn-primary {
+    background-color: #000;
+    border-color: #000;
+    color: #fff;
+}
+.btn.btn-secondary {
+    background-color: rgb(241, 239, 239);
+    border-color: rgb(241, 239, 239);
+    color: black;
+}
+.bottom_buttons{
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    /* justify-content: space-between; */
+    gap: 20px;
+    
 }
