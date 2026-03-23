@@ -11,7 +11,7 @@ body{
 .section1{
      --section1-pad-right: 14px;
     --section1-pad-left: calc(120px + 20px + 12px);
-    /* background-color: blue; */
+     /* background-color: blue; */
     display: flex;
     flex-direction: row;
     flex-wrap: wrap;
