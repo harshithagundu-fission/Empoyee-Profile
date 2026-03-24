@@ -115,11 +115,11 @@ img{
 @media (max-width: 1024px) {
   :root {
     --sidenav-width: 88px;
-    --section1-overlap: 7.5rem;
-    --main-row-width: calc(
+    /* --section1-overlap: 7.5rem; */
+    /* --main-row-width: calc(
       var(--sidenav-width) + var(--layout-gap) + min(240px, 28vw) + var(--layout-gap) +
       min(240px, 28vw) + var(--layout-gap) + min(240px, 28vw)
-    );
+    ); */
   }
 
   .section1 {
@@ -481,4 +481,5 @@ img{
   .bottom_buttons button {
     width: 100%;
   }
+  
 }
