@@ -123,6 +123,110 @@ img {
   min-width: 0;
 }
 
+/* Space below profile / “Employee details” block before the first field */
+.section2 .row1 {
+  margin-bottom: 20px;
+}
+
+/* Space between employee detail fields (first name, last name, email, phone, position) */
+.section2 .field-row {
+  margin-bottom: 20px;
+}
+
+/* Section 3 — Role, Team, Manager, Lead */
+.section3 .field-row {
+  margin-bottom: 20px;
+}
+
+/* Section 4 — onboarding blocks */
+.section4 > p:first-of-type {
+  margin-top: 0;
+  margin-bottom: 20px;
+}
+
+.section4 .field-row {
+  margin-bottom: 20px;
+}
+
+.section4 > .form-check.form-switch {
+  margin-bottom: 20px;
+}
+
+.section4 .current_status {
+  margin-bottom: 20px;
+}
+
+.section4 .current_status > p {
+  margin: 0 0 8px;
+}
+
+/* Status input + % / progress bar — same row, 20px gap */
+.section4 .onboarding-progress-row {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: nowrap;
+  align-items: center;
+  gap: 20px;
+  width: 100%;
+  min-width: 0;
+  box-sizing: border-box;
+}
+
+.section4 .onboarding_status {
+  flex: 0 1 auto;
+  min-width: 0;
+  width: 140px;
+  max-width: 45%;
+}
+
+.section4 .onboarding_status .form-floating {
+  width: 100%;
+}
+
+.section4 .onboarding_status .form-floating > .form-control {
+  min-height: calc(3.5rem + 2px);
+}
+
+.section4 .progress_bar {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  gap: 8px;
+  flex: 1 1 auto;
+  min-width: 0;
+}
+
+.section4 .progress_bar .progress {
+  flex: 1 1 auto;
+  min-width: 0;
+}
+
+.section4 .progress_bar_text {
+  flex: 0 0 auto;
+}
+
+.section4 .progress_bar_text p {
+  margin: 0;
+  white-space: nowrap;
+}
+
+.section4 .view-answers {
+  margin-bottom: 20px;
+}
+
+.section4 .office-tour-section-title {
+  margin-top: 0;
+  margin-bottom: 20px;
+}
+
+.section4 .office_tour_section .office_tour {
+  margin-bottom: 20px;
+}
+
+.section4 .office_tour_section .office_tour:last-child {
+  margin-bottom: 0;
+}
+
 /* DESKTOP SPACING */
 .section3,
 .section4 {
@@ -152,5 +256,26 @@ img {
   .section3,
   .section4 {
     margin-left: 0;
+  }
+
+  .section1.details{
+    margin-top:20px;
+  }
+}
+
+@media (max-width: 400px) {
+  .section4 .onboarding-progress-row {
+    flex-wrap: wrap;
+    row-gap: 12px;
+  }
+
+  .section4 .onboarding_status {
+    width: 100%;
+    max-width: 100%;
+  }
+
+  .section4 .progress_bar {
+    flex: 1 1 100%;
+    width: 100%;
   }
 }
