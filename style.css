@@ -31,7 +31,7 @@ img {
   display: flex;
   align-items: center;
   gap: 10px;
-  margin-left: 90px;
+  margin-left: 110px;
 }
 
 /* Header profile photo — circle, never smaller than min size */
@@ -99,7 +99,8 @@ img {
   gap: 20px;
   top: -80px;
   position: relative;
-  height: 118vh;
+  height: auto;
+  margin:auto;
   /* padding-top: 110px; */
 }
 
@@ -400,3 +401,9 @@ img {
 .sidenav.sidenav-top{
     margin-top: 60px;
 }
+.office-tour-rule section1-divide{
+  opacity: 20px;
+  background-color: gray;
+}
+
+
