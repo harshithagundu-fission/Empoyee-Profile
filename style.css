@@ -89,26 +89,35 @@ img {
 
 /* SIDENAV */
 .sidenav {
-  width: 80px;
+  width: 120px;
   background: #2c2c2c;
   color: white;
-
   display: flex;
   flex-direction: column;
   align-items: center;
   padding: 20px 10px;
   gap: 20px;
+  top: -80px;
+  position: relative;
+  height: 118vh;
+  /* padding-top: 110px; */
+}
+
+/* Extra space between logo and icon menu stack */
+.sidenav .sidenav-top {
+  margin-top: 20px;
 }
 
 /* MENUS */
 .menus,
 .down-menus {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  gap: 20px;
-  justify-content: center;
-  margin-bottom: 75vh;
+      display: flex;
+   flex-direction: column;
+   align-items: center;
+   gap: 20px;
+   justify-content: center;
+   margin-bottom: 58vh;
+   font-size: 30px;
 }
 
 /* Sidenav profile photo — same circle + min size as header */
@@ -387,4 +396,7 @@ img {
     flex: 1 1 100%;
     width: 100%;
   }
+}
+.sidenav.sidenav-top{
+    margin-top: 60px;
 }
