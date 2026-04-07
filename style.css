@@ -88,6 +88,7 @@ img {
 }
 
 /* SIDENAV */
+/* Do not use margin: auto here — it centers the narrow bar in the viewport (middle of the screen). */
 .sidenav {
   width: 120px;
   background: #2c2c2c;
@@ -100,25 +101,47 @@ img {
   top: -80px;
   position: relative;
   height: auto;
-  margin:auto;
+  margin: 0;
+  flex-shrink: 0;
+  align-self: stretch;
+  min-height: min(100vh, 100%);
   /* padding-top: 110px; */
 }
 
-/* Extra space between logo and icon menu stack */
+/* Grow so profile/logout sit at bottom of the column (replaces old margin-bottom: 58vh) */
 .sidenav .sidenav-top {
   margin-top: 20px;
+  flex: 1 1 auto;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  min-height: 0;
 }
 
-/* MENUS */
 .menus,
 .down-menus {
-      display: flex;
-   flex-direction: column;
-   align-items: center;
-   gap: 20px;
-   justify-content: center;
-   margin-bottom: 58vh;
-   font-size: 30px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 20px;
+  justify-content: flex-start;
+  font-size: 30px;
+}
+
+.down-menus {
+  flex-shrink: 0;
+}
+
+/* Menus page — main content beside sidenav */
+.menutext {
+  flex: 1;
+  min-width: 0;
+  padding: 24px 16px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  background: #f5f5f5;
 }
 
 /* Sidenav profile photo — same circle + min size as header */
@@ -405,5 +428,81 @@ img {
   opacity: 20px;
   background-color: gray;
 }
+/* ................ settings styles...........*/
 
+.empty{
+    height:2px;
+    background-color:gainsboro;
+    display:flex;
+    flex-direction: row;
+    margin-top: 20px;
+}
+.card-details{
+    margin-top: 20px;
+}
+.card-details-section{
+    display:flex;
+    flex-direction: row;
+    margin-top: 20px;
+    justify-content: space-between;
+}
+
+.card-name{
+    display:flex;
+    flex-direction: row;
+    margin-top: 20px;
+    justify-content: space-between;
+    align-items: center;
+    margin: 0.1rem;
+padding: 3%;
+gap: clamp(10px, 2vw, 30px);
+}
+.empty2{
+    height:2px;
+    /* margin-top: 10px; */
+    background-color:gainsboro;
+    display:flex;
+    flex-direction: row;
+    
+}
+.contact-emails-section{
+    display:flex;
+    flex-direction: row;
+    /* margin-top: 20px; */
+    justify-content: space-between;
+    align-items: center;
+    /* margin-left: 0.1rem;
+padding-left: 3%; */
+    
+
+}
+.emails{
+    display:flex;
+    flex-direction: column;
+    margin-top: 20px;
+    justify-content: space-between;
+    align-items: center;
+    margin: 0.1rem;
+padding: 3%;
+gap: clamp(10px, 2vw, 30px);
+
+
+}
+.billing-history{
+    margin-top: 20px;
+}
+.billingg{
+    align-items: center;
+    padding:2rem;
+    justify-content: center;
+    margin:4rem;
+    border-color:red;
+}
+.payment-method{
+    margin-top: 20px;
+}
+.empty3{
+    height:2px;
+    margin-bottom:10px;
+}
 
