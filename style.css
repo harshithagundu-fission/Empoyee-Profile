@@ -1,454 +1,508 @@
-:root{
-    /* Pull sidenav up by full section1 height (blue bar + divider + padding). Tune if header content changes. */
-    --section1-overlap: 7.75rem;
-    /* sidenav + gap + s2 + gap + s3 + gap + s4 — same as sec2_sec3 content width */
-    --main-row-width: calc(120px + 20px + 240px + 20px + 240px + 20px + 240px);
+/* RESET */
+* {
+  box-sizing: border-box;
 }
-body{
-    margin: 0;
-    background-color: #f5f5f5;
+
+body {
+  margin: 0;
+  background: #f5f5f5;
+  font-family: Arial, Helvetica, sans-serif;
 }
-.section1{
-     --section1-pad-right: 14px;
-    --section1-pad-left: calc(120px + 20px + 12px);
-     /* background-color: blue; */
-    display: flex;
+
+img {
+  max-width: 100%;
+  height: auto;
+}
+
+/* HEADER */
+.section1 {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  gap: 10px;
+
+  padding: 12px 16px;
+  background: white;
+}
+
+/* LEFT SIDE */
+.section1-bar {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  margin-left: 110px;
+}
+
+/* Header profile photo — circle, never smaller than min size */
+.section1 .down-menus-image {
+  flex-shrink: 0;
+  min-width: 48px;
+  min-height: 48px;
+  width: 52px;
+  height: 52px;
+  border-radius: 50%;
+  overflow: hidden;
+}
+
+.section1 .down-menus-image img {
+  display: block;
+  width: 100%;
+  height: 100%;
+  min-width: 100%;
+  min-height: 100%;
+  object-fit: cover;
+  object-position: center;
+}
+
+/* RIGHT SIDE */
+.section1 .date {
+  margin-left: auto;
+}
+
+.section1 .delete_button .btn,
+.section1 .delete_button button {
+  background-color: rgb(240, 172, 172);
+  border-color: rgb(237, 173, 173);
+  color: red;
+}
+
+/* .section1 .delete_button .btn:hover,
+.section1 .delete_button button:hover {
+  background-color: rgb(225, 155, 155);
+  border-color: rgb(225, 155, 155);
+  color: #fff;
+} */
+
+/* LOGO */
+.section1-logo-img {
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+}
+
+/* MAIN LAYOUT */
+.sec2_sec3 {
+  display: flex;
+  min-height: 100vh;
+}
+
+/* SIDENAV */
+/* Do not use margin: auto here — it centers the narrow bar in the viewport (middle of the screen). */
+.sidenav {
+  width: 120px;
+  background: #2c2c2c;
+  color: white;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 20px 10px;
+  gap: 20px;
+  top: -80px;
+  position: relative;
+  height: auto;
+  margin: 0;
+  flex-shrink: 0;
+  align-self: stretch;
+  min-height: min(100vh, 100%);
+  /* padding-top: 110px; */
+}
+
+/* Grow so profile/logout sit at bottom of the column (replaces old margin-bottom: 58vh) */
+.sidenav .sidenav-top {
+  margin-top: 20px;
+  flex: 1 1 auto;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  min-height: 0;
+}
+
+.menus,
+.down-menus {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 20px;
+  justify-content: flex-start;
+  font-size: 30px;
+}
+
+.down-menus {
+  flex-shrink: 0;
+}
+
+/* Menus page — main content beside sidenav */
+.menutext {
+  flex: 1;
+  min-width: 0;
+  padding: 24px 16px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  background: #f5f5f5;
+}
+
+/* Sidenav profile photo — same circle + min size as header */
+.sidenav .down-menus-image {
+  flex-shrink: 0;
+  min-width: 48px;
+  min-height: 48px;
+  width: 52px;
+  height: 52px;
+  border-radius: 50%;
+  overflow: hidden;
+}
+
+.sidenav .down-menus-image img {
+  display: block;
+  width: 100%;
+  height: 100%;
+  min-width: 100%;
+  min-height: 100%;
+  object-fit: cover;
+  object-position: center;
+}
+
+/* CONTENT */
+.section2,
+.section3,
+.section4 {
+  flex: 1;
+  padding: 16px;
+  min-width: 0;
+}
+
+/* Space below profile / “Employee details” block before the first field */
+.section2 .row1 {
+  margin-bottom: 20px;
+}
+
+/* Space between employee detail fields (first name, last name, email, phone, position) */
+.section2 .field-row {
+  margin-bottom: 20px;
+}
+
+/* Save / Cancel — always one row (never stack); scroll horizontally if needed on tiny screens */
+.section2 .bottom_buttons {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: nowrap;
+  align-items: center;
+  gap: 20px;
+  margin-top: 60px;
+  width: 100%;
+  max-width: 100%;
+  overflow-x: auto;
+  -webkit-overflow-scrolling: touch;
+}
+
+.section2 .bottom_buttons .save,
+.section2 .bottom_buttons .cancel {
+  flex: 0 0 auto;
+  display: flex;
+  align-items: center;
+}
+
+/* Save Changes — black background, white text */
+.section2 .bottom_buttons .save .btn,
+.section2 .bottom_buttons .save button {
+  background-color: #000;
+  border-color: #000;
+  color: #fff;
+  padding: 10px;
+  margin: 0;
+  box-sizing: border-box;
+  white-space: nowrap;
+}
+
+/* .section2 .bottom_buttons .save .btn:hover,
+.section2 .bottom_buttons .save button:hover {
+  background-color: #222;
+  border-color: #222;
+  color: #fff;
+} */
+
+/* Cancel — gray background, black text */
+.section2 .bottom_buttons .cancel .btn,
+.section2 .bottom_buttons .cancel button {
+  background-color: #bdbdbd;
+  border-color: #bdbdbd;
+  color: #000;
+  padding: 10px;
+  margin: 0;
+  box-sizing: border-box;
+  white-space: nowrap;
+}
+
+/* .section2 .bottom_buttons .cancel .btn:hover,
+.section2 .bottom_buttons .cancel button:hover {
+  background-color: #9e9e9e;
+  border-color: #9e9e9e;
+  color: #000;
+} */
+
+/* Section 3 — Role, Team, Manager, Lead */
+.section3 .field-row {
+  margin-bottom: 20px;
+}
+
+/* Section 4 — onboarding blocks */
+.section4 > p:first-of-type {
+  margin-top: 0;
+  margin-bottom: 20px;
+}
+
+.section4 .field-row {
+  margin-bottom: 20px;
+}
+
+.section4 > .form-check.form-switch {
+  margin-top: 32px;
+  margin-bottom: 20px;
+}
+
+.section4 .current_status {
+  margin-bottom: 20px;
+}
+
+.section4 .current_status > p {
+  margin: 0 0 8px;
+}
+
+/* Status input + % / progress bar — same row, 20px gap */
+.section4 .onboarding-progress-row {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: nowrap;
+  align-items: center;
+  gap: 20px;
+  width: 100%;
+  min-width: 0;
+  box-sizing: border-box;
+}
+
+.section4 .onboarding_status {
+  flex: 0 1 auto;
+  min-width: 0;
+  width: 140px;
+  max-width: 45%;
+}
+
+.section4 .onboarding_status .form-floating {
+  width: 100%;
+}
+
+.section4 .onboarding_status .form-floating > .form-control {
+  min-height: calc(3.5rem + 2px);
+}
+
+.section4 .progress_bar {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  gap: 8px;
+  flex: 1 1 auto;
+  min-width: 0;
+}
+
+.section4 .progress_bar .progress {
+  flex: 1 1 auto;
+  min-width: 0;
+}
+
+.section4 .progress_bar_text {
+  flex: 0 0 auto;
+}
+
+.section4 .progress_bar_text p {
+  margin: 0;
+  white-space: nowrap;
+}
+
+.section4 .view-answers {
+  margin-bottom: 20px;
+  text-align: center;
+}
+
+/* .section4 .view-answers p {
+  margin: 0;
+} */
+
+.section4 .office-tour-section-title {
+  margin-top: 30px;
+  margin-bottom: 20px;
+}
+
+/* Script name / switch at flex-start, % at flex-end */
+.section4 .office_tour_row {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: flex-start;
+  width: 100%;
+  gap: 16px;
+  box-sizing: border-box;
+}
+
+.section4 .office_tour_row .form-check {
+  flex: 0 1 auto;
+  min-width: 0;
+}
+
+.section4 .office_tour_pct {
+  flex: 0 0 auto;
+  margin-left: auto;
+  text-align: right;
+}
+
+.section4 .office_tour_pct p {
+  margin: 0;
+}
+
+.section4 .office_tour_section .office_tour {
+  margin-bottom: 20px;
+}
+
+.section4 .office_tour_section .office_tour:last-child {
+  margin-bottom: 0;
+}
+
+/* DESKTOP SPACING */
+.section3,
+.section4 {
+  margin-left: 16px;
+}
+
+/* MOBILE */
+@media (max-width: 768px) {
+  .sec2_sec3 {
+    flex-direction: column;
+  }
+
+  .sidenav {
+    width: 100%;
+    flex-direction: row;
+    justify-content: center;
+    flex-wrap: wrap;
+  }
+
+  .menus,
+  .down-menus {
     flex-direction: row;
     flex-wrap: wrap;
-    align-items: center;
-    justify-content: flex-start;
-    gap: 12px 16px;
-    box-sizing: border-box;
-    width: var(--main-row-width);
+    justify-content: center;
+  }
+
+  .section3,
+  .section4 {
+    margin-left: 0;
+  }
+
+  .section1.details{
+    margin-top:20px;
+  }
+}
+
+@media (max-width: 400px) {
+  .section4 .onboarding-progress-row {
+    flex-wrap: wrap;
+    row-gap: 12px;
+  }
+
+  .section4 .onboarding_status {
+    width: 100%;
     max-width: 100%;
-    padding: 10px var(--section1-pad-right);
-    padding-left: var(--section1-pad-left);
-    margin-bottom: 20px;
-    position: relative;
-    z-index: 2;
+  }
+
+  .section4 .progress_bar {
+    flex: 1 1 100%;
+    width: 100%;
+  }
+}
+.sidenav.sidenav-top{
+    margin-top: 60px;
+}
+.office-tour-rule section1-divide{
+  opacity: 20px;
+  background-color: gray;
+}
+/* ................ settings styles...........*/
+
+.empty{
+    height:2px;
+    background-color:gainsboro;
+    display:flex;
+    flex-direction: row;
     margin-top: 20px;
 }
-.section1-divider.office-tour-rule{
-    flex-basis: 100%;
-    /* width: calc(100% + var(--section1-pad-left) + var(--section1-pad-right));
-    margin: 8px calc(-1 * var(--section1-pad-right)) 0 calc(-1 * var(--section1-pad-left)); */
-    align-self: stretch;
-    box-sizing: border-box;
-}
-.section1-bar{
-    display: flex;
-    flex-direction: row;
-    align-items: center;
-    gap: 12px;
-    flex: 0 1 auto;
-    min-width: 0;
-    justify-content: flex-start;
-}
-.section1 .date h6,
-.section1 h3{
-    margin: 0;
-    text-align: left;
-}
-.section1 .date{
-    flex: 0 0 auto;
-    margin-left: auto;
-}
-.section1 .delete_button{
-    flex: 0 0 auto;
-}
-.section1-logo-img{
-    width: 32px;
-    height: 32px;
-    object-fit: contain;
-    display: block;
-    flex-shrink: 0;
-}
-.section1-back-arrow{
-    font-size: 24px;
-    width: 24px;
-    height: 24px;
-    flex-shrink: 0;
-}
-.sidenav{
-   flex: 0 0 auto;
-    width: 120px;
-    min-height: calc(100vh + var(--section1-overlap));
-    box-sizing: border-box;
-    padding: 16px 12px;
-    padding-top: calc(12px + var(--section1-overlap));
-    background-color: #e8e8e8;
-    border-right: 1px solid #c8c8c8;
-    margin-right: 20px;
-    margin-top: calc(-1 * var(--section1-overlap));
-    display: flex;
-    flex-direction: column;
-    position: relative;
-    z-index: 3;
-    background-color: black;
-    color: white;
-}
-.sidenav h1{
-    font-size: 0.9rem;
-    margin: 0;
-    word-break: break-word;
-}
-.section2{
-    /* background-color: green; */
-    min-height: 100vh;
-    flex: 0 0 auto;
-    width: 240px;
-    min-width: 0;
-    display:flex;
-    flex-direction: column;
-
-}
-.image{
-    width: 50px;
-    height: 50px;
-    /* flex-shrink: 0; */
-    /* background-color: yellow; */
-    border-radius: 50%;
-    overflow: hidden;
-
-}
-.row1{
-    display: flex;
-    flex-direction: column;
-    /* background-color: green; */
-    width: 240px;
-    margin-bottom: 20px;
-    /* margin-top: 90px; */
-}
-.section3{
-    /* background-color: red; */
-    min-height: 100vh;
-    flex: 0 0 auto;
-    width: 240px;
-    min-width: 0;
-    max-width: 240px;
-    box-sizing: border-box;
-    display:flex;
-    flex-direction: column;
-    gap: 20px;
-    margin-left: 20px;
-    overflow: auto;
-}
-.sec2_sec3{
-    display: flex;
-    flex-direction: row;
-    align-items: stretch;
-    /* background-color:pink; */
-    min-height: 100vh;
-    width: var(--main-row-width);
-    max-width: 100%;
-    box-sizing: border-box;
-}
-.section4{
-    /* background-color: purple; */
-    min-height: 100vh;
-    flex: 0 0 auto;
-    width: 300px;
-    /* min-width: 0; */
-    width: 240px;
-    box-sizing: border-box;
-    display:flex;
-    flex-direction: column;
-    margin-left: 20px;
-    overflow: auto;
-}
-.view-answers{
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    width: 100%;
-    text-align: center;
-    box-sizing: border-box;
+.card-details{
     margin-top: 20px;
 }
-.view-answers p{
-    margin: 0;
+.card-details-section{
+    display:flex;
+    flex-direction: row;
+    margin-top: 20px;
+    justify-content: space-between;
 }
-/* Same vertical rhythm as HR / Manager / Lead blocks in section3 */
-.field-row{
-    margin-bottom: 20px;
-    width: 100%;
-    max-width: 100%;
-    box-sizing: border-box;
-}
-/* .field-row-body{
-    width: 100%;
-}
-.field-row-body .form-floating > .form-control,
-.field-row-body .form-floating > .form-select{
-    min-height: calc(3.5rem + 2px);
-}
-.field-row-body .input-group{
-    flex-wrap: nowrap;
-}
-.field-row-body .input-group .form-floating{
-    min-width: 0;
-}
-.field-row-body .input-group .input-group-text{
-    display: flex;
-    align-items: center;
-    padding: 0 0.75rem;
-} */
 
-.role_section{
-    display: flex;
-    flex-direction: column;
-    gap: 60px;
-}
-/* Use gap in section3 / role_section; avoid stacking gap + field-row margin */
-.section3 .field-row{
-    margin-bottom: 0;
-}
-.details{
-    margin-top:40px;
-}
-.itext{
-    display: flex;
-    /* align-items: center; */
-    justify-content: center;
-    margin-right: 30px;
-}
-.current_status{
-    margin-top: 40px;
-    width: 100%;
-}
-.current_status > p{
-    margin: 0 0 8px 0;
-}
-.onboarding-progress-row{
-    display: flex;
+.card-name{
+    display:flex;
     flex-direction: row;
-    align-items: center;
-    gap: 10px;
-    width: 100%;
-    box-sizing: border-box;
-}
-.onboarding_status{
-    flex: 0 0 auto;
-    width: 112px;
-    min-width: 0;
-    margin-right: 0;
-}
-.onboarding_status .form-floating{
-    width: 100%;
-}
-.onboarding_status .form-floating > .form-control{
-    min-height: calc(3.5rem + 2px);
-}
-.progress_bar{
-    display: flex;
-    flex-direction: row;
-    align-items: center;
-    gap: 8px;
-    flex: 1 1 auto;
-    min-width: 0;
-    margin-right: 0;
-}
-.progress_bar .progress{
-    flex: 1 1 auto;
-    min-width: 0;
-}
-.progress_bar_text{
-    flex: 0 0 auto;
-}
-.progress_bar_text p{
-    margin: 0;
-    white-space: nowrap;
-}
-.office_tour{
-    display: flex;
-    flex-direction: column;
-    align-items: stretch;
-    width: 100%;
-    gap: 8px;
-}
-.office_tour_row{
-    display: flex;
-    flex-direction: row;
+    margin-top: 20px;
     justify-content: space-between;
     align-items: center;
-    width: 100%;
-    gap:30px;
-    margin-top:10px;
+    margin: 0.1rem;
+padding: 3%;
+gap: clamp(10px, 2vw, 30px);
 }
-.office_tour_pct p{
-    margin: 0;
-    white-space: nowrap;
+.empty2{
+    height:2px;
+    /* margin-top: 10px; */
+    background-color:gainsboro;
+    display:flex;
+    flex-direction: row;
+    
 }
-.office-tour-rule{
-    width: 100%;
-    max-width: 100%;
-    margin: 0;
-    border: 0;
-    /* border-top: 1px solid rgba(0, 0, 0, 0.35); */
-    opacity: 0.2;
-    flex-shrink: 0;
-}
-.office-tour-section-title{
-    margin: 0 0 12px 0;
-}
-.office_tour_section{
-    display: flex;
-    flex-direction: column;
-    margin-top: 80px;
-    width: 100%;
-}
-.sidenav-content{
-    display: flex;
-    flex-direction: column;
+.contact-emails-section{
+    display:flex;
+    flex-direction: row;
+    /* margin-top: 20px; */
+    justify-content: space-between;
     align-items: center;
+    /* margin-left: 0.1rem;
+padding-left: 3%; */
+    
+
+}
+.emails{
+    display:flex;
+    flex-direction: column;
+    margin-top: 20px;
+    justify-content: space-between;
+    align-items: center;
+    margin: 0.1rem;
+padding: 3%;
+gap: clamp(10px, 2vw, 30px);
+
+
+}
+.billing-history{
+    margin-top: 20px;
+}
+.billingg{
+    align-items: center;
+    padding:2rem;
     justify-content: center;
-    width: 100%;
-    height: 100%;
+    margin:4rem;
+    border-color:red;
 }
-.sidenav-top{
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    width: 100%;
-    flex-shrink: 0;
+.payment-method{
+    margin-top: 20px;
 }
-.menus{
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: flex-start;
-    font-size: 25px;
-    width: 100%;
-    margin-top: 80px;
-    gap: 30px;
+.empty3{
+    height:2px;
+    margin-bottom:10px;
 }
-.sidenav_image{
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-    width: auto;
-    height: auto;
-    flex-shrink: 0;
-    margin-bottom: 8px;
-}
-.sidenav_image img{
-    width:60px;
-    height: 60px;
-    max-width: 100%;
-    object-fit: contain;
-    display: block;
-}
-.down-menus-image{
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-    border-radius: 50%;
-    overflow: hidden;
-    width: 40px;
-    height: 40px;
-    max-width: 100%;
-    object-fit: contain;
-    display: block;
-    margin-bottom: 8px;
-}
-.down-menus-image img{
-       display: block;
-    flex-shrink: 0;
-    width: 40px;
-    height: 50px;
-    border-radius: 50%;
-    overflow: hidden;
-    margin: 0;
-    min-width: 0;
-}
-.down-menus{
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-    font-size: 25px;
-    width: auto;
-    height: auto;
-    margin-top: auto;
-    gap: 20px;
-    padding-bottom: 8px;
-}
-.logout-icon{
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    font-size: 25px;
-    line-height: 1;
-}
-.logout-icon ion-icon{
-    font-size: 25px;
-    width: 25px;
-    height: 25px;
-}
-.navimage{
-    display: block;
-    flex-shrink: 0;
-    width: 40px;
-    height: 40px;
-    border-radius: 50%;
-    overflow: hidden;
-    margin: 0;
-    min-width: 0;
-}
-.navimage img{
-    width: 100%;
-    height: 100%;
-    display: block;
-    object-fit: cover;
-    object-position: center;
-}
-/* Centered in the strip where sidenav overlaps section1 (--section1-overlap) */
-.sidenav-logo{
-    position: absolute;
-    left: 50%;
-    top: calc(var(--section1-overlap) * 0.5);
-    transform: translate(-50%, -50%);
-    z-index: 5;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    line-height: 0;
-    text-decoration: none;
-}
-.sidenav-logo-img{
-     width: 50px;
-    height: 50px;
-    object-fit: contain;
-    display: block;
-    margin-top: 40px;
-}
-.menutext{
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-}
-/* .profiletext{
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-} */
-.scripttext{
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-}
-.settingstext{
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-}
-.delete_button{
-    background-color: rgb(236, 137, 137);
-    border-radius: 30%;
-}
+

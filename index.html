@@ -28,6 +28,8 @@
                 <script src="https://code.jquery.com"></script>
                 <script src="https://cdn.jsdelivr.net"></script>
                 <script src="https://cdnjs.cloudflare.com"></script>
+                <link rel="stylesheet" href="https://cdn.jsdelivr.net">
+
 
     
     
@@ -44,7 +46,7 @@
                 <div class="section1-bar">
                     
                     <ion-icon name="arrow-back-outline" class="section1-back-arrow" aria-label="Back"></ion-icon>
-                    <div class="navimage">
+                    <div class="down-menus-image">
                         <img src="assets/3g_image.jpg" alt="Profile photo">
                       
                     </div>
@@ -56,7 +58,11 @@
                         <h6>Added on 18-03-2016</h6>
                     </div>
                      <div class="delete_button">
-                         <button type="submit">Delete</button>
+                         <!-- <button type="submit">Delete</button> -->
+                          <button type="button" class="btn btn-danger">
+                            <i class="bi bi-trash"></i>
+                            Delete
+                            </button>
                      </div> 
              <!-- </div> -->
 
@@ -68,7 +74,10 @@
 
         <!-- sidenav -->
         <section class="sidenav" aria-label="Side navigation">
-            <a href="#" class="sidenav-logo" aria-label="Home">
+           
+                <a href="#" class="sidenav-logo" aria-label="Home"></a>
+        
+            
                 <img src="assets/logo2.jpg" alt="" class="sidenav-logo-img" width="36" height="36">
             </a>
             <div class="sidenav-top">
@@ -111,10 +120,13 @@
                 
                 <div class="image_text">
                     <div class="long_image">
-                        <img src="assets/3g_image.jpg" alt="Profile photo">
+                  
+                        <input type="file" id="fileInput" accept="image/*" style="display:none">
+                        <img id = "myImage" src="assets/3g_image.jpg" alt="Profile photo">
+
                     </div>
                     <div class="itext">
-                        <p><a class="link-offset-2 link-underline link-underline-opacity-0" href="#">Change Profile Image</a></p> 
+                        <p><a class="link-offset-2 link-underline link-underline-opacity-0" href="#" onclick="openFile(event)">Change Profile Image</a></p> 
                     </div>
                     
                     <div class="details">
@@ -214,9 +226,11 @@
                                         </div>
                                     </div>
                                     <!-- bottom-buttons -->
-                                    <div class="field-row field-row--actions">
-                                        <div class="field-row-body field-row-body--actions">
-                                            <button type="button" class="btn btn-bg-black btn-sm">Save Changes</button>
+                                    <div class="bottom_buttons">
+                                        <div class="save">
+                                            <button type="button" class="btn btn-primary btn-sm">Save Changes</button>
+                                        </div>
+                                        <div class="cancel">
                                             <button type="button" class="btn btn-secondary btn-sm">Cancel</button>
                                         </div>
                                     </div>
@@ -435,6 +449,33 @@
 
                 
 
+          <script>
+            function openFile(event) {
+                event.preventDefault();
+                document.getElementById("fileInput").click();
+            }
+            (function () {
+                var fileInput = document.getElementById("fileInput");
+                var myImage = document.getElementById("myImage");
+                var previewUrl = null;
+                if (fileInput && myImage) {
+                    fileInput.addEventListener("change", function (e) {
+                        var file = e.target.files[0];
+                        if (!file) {
+                            return;
+                        }
+                        if (previewUrl) {
+                            URL.revokeObjectURL(previewUrl);
+                        }
+                        previewUrl = URL.createObjectURL(file);
+                        myImage.src = previewUrl;
+                        document.querySelectorAll(".down-menus-image img").forEach(function (img) {
+                            img.src = previewUrl;
+                        });
+                    });
+                }
+            })();
+          </script>
           <script src="script.js"></script>
     </body>
 </html>
